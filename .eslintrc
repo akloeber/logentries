@@ -1,0 +1,21 @@
+env:
+  node: true
+  browser: true
+  mocha: true
+
+globals:
+  assert: false
+  expect: false
+
+rules:
+  indent: [2, 2]
+  quotes: [1, "single"]
+  valid-jsdoc:
+    - 1
+    - prefer:
+        return: "returns"
+      requireReturn: false
+  no-use-before-define: [2, "nofunc"]
+  no-unused-vars:
+    - 1
+    - args: "none"
