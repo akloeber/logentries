@@ -2,7 +2,7 @@
 
 /* eslint no-unused-expressions:0 */
 
-var LogEntriesLogger = require('../lib').LogEntriesLogger;
+var LogentriesLogger = require('../lib').LogentriesLogger;
 var sinon = require('sinon');
 var _ = require('lodash');
 
@@ -44,7 +44,7 @@ function createLogger(transport, opts) {
     }
   });
 
-  return new LogEntriesLogger(logOpts);
+  return new LogentriesLogger(logOpts);
 }
 
 
