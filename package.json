@@ -19,7 +19,7 @@
   "dependencies": {
     "lodash": "^3.8.0"
   },
-  "main": "lib/LogEntriesLogger.js",
+  "main": "lib",
   "scripts": {
     "test": "mocha test/*.test.js"
   },

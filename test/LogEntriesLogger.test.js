@@ -2,7 +2,7 @@
 
 /* eslint no-unused-expressions:0 */
 
-var logentries = require('../lib/LogEntriesLogger');
+var LogEntriesLogger = require('../lib').LogEntriesLogger;
 var sinon = require('sinon');
 var _ = require('lodash');
 
@@ -44,7 +44,7 @@ function createLogger(transport, opts) {
     }
   });
 
-  return logentries.logger(logOpts);
+  return new LogEntriesLogger(logOpts);
 }
 
 
@@ -115,6 +115,7 @@ describe('logentries', function() {
       log.crit('t5');
       log.alert('t6');
       log.emerg('t7');
+      log.level().should.eql('err');
 
       t.expect([
         [FIX_TIMESTAMP_ISO_STRING, 'err', 't4'],
@@ -259,6 +260,14 @@ describe('logentries', function() {
         [FIX_TIMESTAMP_ISO_STRING, 'info', 'a=null '],
         [FIX_TIMESTAMP_ISO_STRING, 'info', ''],
         [FIX_TIMESTAMP_ISO_STRING, 'info', 'a.0=null ']
+      ]);
+    });
+
+    it('should replace newlines in strings with unicode line separator', function() {
+      log.info('str0\nstr1\nstr2');
+
+      t.expect([
+        [FIX_TIMESTAMP_ISO_STRING, 'info', 'str0\u2028str1\u2028str2']
       ]);
     });
   });
