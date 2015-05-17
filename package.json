@@ -16,8 +16,10 @@
     "Richard Rodger (http://richardrodger.com)",
     "Mark Lacomber  (https://github.com/MarkLC)"
   ],
-  "dependencies": {},
-  "main": "lib/logentries",
+  "dependencies": {
+    "lodash": "^3.8.0"
+  },
+  "main": "lib/LogEntriesLogger.js",
   "scripts": {
     "test": "mocha test/*.test.js"
   },
@@ -29,7 +31,9 @@
     "node": "*"
   },
   "devDependencies": {
-    "mocha": "^1.20.0"
+    "chai": "~2.3.0",
+    "mocha": "^2.2.5",
+    "sinon": "^1.14.1"
   },
   "license": "BSD-3-Clause"
 }

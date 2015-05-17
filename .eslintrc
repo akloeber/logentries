@@ -4,8 +4,8 @@ env:
   mocha: true
 
 globals:
-  assert: false
-  expect: false
+  assert: true
+  expect: true
 
 rules:
   indent: [2, 2]
