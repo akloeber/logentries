@@ -245,6 +245,13 @@ describe('logentries', function() {
       });
       log.info(['a', 'b']);
       log.info({
+        a: [{
+          b: '1'
+        }, {
+          b: '2'
+        }]
+      });
+      log.info({
         a: null
       });
       log.info({
@@ -255,11 +262,12 @@ describe('logentries', function() {
       });
 
       t.expect([
-        [FIX_TIMESTAMP_ISO_STRING, 'info', 'a=1 b=2 '],
-        [FIX_TIMESTAMP_ISO_STRING, 'info', '0=a 1=b '],
-        [FIX_TIMESTAMP_ISO_STRING, 'info', 'a=null '],
-        [FIX_TIMESTAMP_ISO_STRING, 'info', ''],
-        [FIX_TIMESTAMP_ISO_STRING, 'info', 'a.0=null ']
+        [FIX_TIMESTAMP_ISO_STRING, 'info', 'a=1 b=2'],
+        [FIX_TIMESTAMP_ISO_STRING, 'info', '0=a 1=b'],
+        [FIX_TIMESTAMP_ISO_STRING, 'info', 'a.0.b=1 a.1.b=2'],
+        [FIX_TIMESTAMP_ISO_STRING, 'info', 'a=null'],
+        [FIX_TIMESTAMP_ISO_STRING, 'info', 'a='],
+        [FIX_TIMESTAMP_ISO_STRING, 'info', 'a.0=null']
       ]);
     });
 

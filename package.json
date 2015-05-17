@@ -17,6 +17,7 @@
     "Mark Lacomber  (https://github.com/MarkLC)"
   ],
   "dependencies": {
+    "flat": "^1.5.1",
     "lodash": "^3.8.0"
   },
   "main": "lib",
